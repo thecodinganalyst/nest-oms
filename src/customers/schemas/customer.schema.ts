@@ -48,6 +48,17 @@ export class Customer {
       postal: { type: String },
     },
   })
+  @ApiProperty({
+    example: {
+      building: '123',
+      street: 'Main St',
+      unit: 'Apt 4',
+      city: 'City',
+      country: 'Country',
+      postal: '12345',
+    },
+    description: 'The address of the customer',
+  })
   address: {
     building: string;
     street: string;
