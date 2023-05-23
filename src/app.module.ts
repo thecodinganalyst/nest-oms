@@ -5,6 +5,7 @@ import { ProductsModule } from './products/products.module';
 import { CustomersModule } from './customers/customers.module';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import * as process from 'process';
 
 @Module({
   imports: [
@@ -13,7 +14,7 @@ import { MongooseModule } from '@nestjs/mongoose';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    MongooseModule.forRoot('mongodb://localhost:27017/nest'),
+    MongooseModule.forRoot(process.env.MONGODB_HOST),
   ],
   controllers: [AppController],
   providers: [AppService],
