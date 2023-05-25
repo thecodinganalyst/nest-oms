@@ -10,14 +10,14 @@ export class Customer {
     example: 'David',
     description: 'The given name of the customer',
   })
-  @Prop()
+  @Prop({ required: true })
   givenName: string;
 
   @ApiProperty({
     example: 'Jones',
     description: 'The family name of the customer',
   })
-  @Prop()
+  @Prop({ required: true })
   familyName: string;
 
   @ApiProperty({
@@ -31,7 +31,7 @@ export class Customer {
     example: 'davidjones@example.com',
     description: 'The email of the customer',
   })
-  @Prop()
+  @Prop({ required: true, unique: true })
   email: string;
 
   @ApiProperty({ example: 'true', description: 'If the customer is active' })
@@ -72,8 +72,11 @@ export class Customer {
     example: '98771234',
     description: 'The contact number of the customer',
   })
-  @Prop()
+  @Prop({ required: true })
   contact: string;
+
+  @Prop({ required: true, select: false })
+  password: string;
 }
 
 export const CustomerSchema = SchemaFactory.createForClass(Customer);

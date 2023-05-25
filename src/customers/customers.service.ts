@@ -11,7 +11,10 @@ export class CustomersService {
   ) {}
   async create(createCustomerDto: CreateCustomerDto): Promise<Customer> {
     const createdCustomer = new this.customerModel(createCustomerDto);
-    return createdCustomer.save();
+    const savedCustomer = await createdCustomer.save();
+    const customerObject = savedCustomer.toObject();
+    delete customerObject.password;
+    return customerObject;
   }
 
   async findAll(): Promise<Customer[]> {
@@ -33,5 +36,16 @@ export class CustomersService {
 
   async remove(id: string) {
     return this.customerModel.findByIdAndDelete({ _id: id }).exec();
+  }
+
+  async validate(login: string, password: string): Promise<Customer | null> {
+    const customer = await this.customerModel
+      .findOne({ login: login })
+      .select('+password')
+      .lean()
+      .exec();
+    const match = password === customer.password;
+    delete customer.password;
+    return match ? customer : null;
   }
 }

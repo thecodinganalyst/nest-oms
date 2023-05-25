@@ -8,6 +8,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import * as process from 'process';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Product } from './products/entities/product.entity';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { Product } from './products/entities/product.entity';
       entities: [Product],
       synchronize: true, // to be removed for production
     }),
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

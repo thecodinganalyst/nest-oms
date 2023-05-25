@@ -4,6 +4,7 @@ import {
   IsNotEmpty,
   IsNumberString,
   IsString,
+  IsStrongPassword,
   ValidateNested,
 } from 'class-validator';
 import { AddressDto } from './address.dto';
@@ -52,4 +53,13 @@ export class CreateCustomerDto {
     description: 'The contact number of the customer',
   })
   contact: string;
+
+  @IsStrongPassword({
+    minLength: 12,
+    minLowercase: 1,
+    minUppercase: 1,
+    minNumbers: 1,
+    minSymbols: 1,
+  })
+  password: string;
 }
