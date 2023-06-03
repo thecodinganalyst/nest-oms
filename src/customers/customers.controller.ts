@@ -17,6 +17,7 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { Customer } from './schemas/customer.schema';
+import { Public } from '../auth/public.decorator';
 
 @ApiBearerAuth()
 @ApiTags('Customers')
@@ -24,6 +25,7 @@ import { Customer } from './schemas/customer.schema';
 export class CustomersController {
   constructor(private readonly customersService: CustomersService) {}
 
+  @Public()
   @Post()
   @ApiOperation({ summary: 'Create a new customer' })
   @ApiResponse({
