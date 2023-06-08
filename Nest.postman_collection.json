@@ -12,6 +12,16 @@
 				{
 					"name": "Create Customer",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -43,7 +53,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImRlbm5pcyIsInN1YiI6ImRlbm5pc0B0aGVjb2RpbmdhbmFseXN0LmNvbSIsImlhdCI6MTY4NjIxNjMzNCwiZXhwIjoxNjg2MzAyNzM0fQ.4HeO174KOvJ71IEKOUCUovNT7DqfqWOotpaI1NG7Vnw",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -71,7 +81,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImRlbm5pcyIsInN1YiI6ImRlbm5pc0B0aGVjb2RpbmdhbmFseXN0LmNvbSIsImlhdCI6MTY4NjIxNjMzNCwiZXhwIjoxNjg2MzAyNzM0fQ.4HeO174KOvJ71IEKOUCUovNT7DqfqWOotpaI1NG7Vnw",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -108,6 +118,16 @@
 				{
 					"name": "Get All Products",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -125,11 +145,21 @@
 				{
 					"name": "Create Product",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": 1,\n    \"name\": \"Product A\",\n    \"description\": \"Description of Product A\",\n    \"price\": 100.50,\n    \"currency\": \"SGD\"\n}",
+							"raw": "{\n    \"id\": 1,\n    \"name\": \"Product A\",\n    \"description\": \"Description of Product A\",\n    \"price\": \"100.20\",\n    \"currency\": \"SGD\",\n    \"photos\": \"\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -151,16 +181,26 @@
 				{
 					"name": "Get Product",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{endpoint}}/customers/646c5f1f92ae31b7b97d681c",
+							"raw": "{{endpoint}}/products/1",
 							"host": [
 								"{{endpoint}}"
 							],
 							"path": [
-								"customers",
-								"646c5f1f92ae31b7b97d681c"
+								"products",
+								"1"
 							]
 						}
 					},
@@ -169,11 +209,21 @@
 				{
 					"name": "Update Product",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": 1,\n    \"name\": \"Product A\",\n    \"description\": \"Description of Product A\",\n    \"price\": 100.50,\n    \"currency\": \"SGD\"\n}",
+							"raw": "{\n    \"id\": 1,\n    \"name\": \"Product A\",\n    \"description\": \"Description of Product A\",\n    \"price\": \"100.50\",\n    \"currency\": \"SGD\",\n    \"photos\": \"\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -202,7 +252,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"dennis\",\n    \"password\": \"$2a$12$Uv29iEHmK47wWffV.NzhYubvObdqVHt7EWYw1Xvd/4Nf/dEcGNA6a\"\n}",
+					"raw": "{\n    \"username\": \"dennis\",\n    \"password\": \"$2b$10$beSlOQ4jE0Q5DppJyCSTOOtfePk9mNvHIQr5RvBIILzS06pDCvWNC\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -225,6 +275,16 @@
 		{
 			"name": "Profile",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -265,6 +325,10 @@
 			"key": "endpoint",
 			"value": "http://localhost:3000/v1",
 			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImRlbm5pcyIsInN1YiI6ImRlbm5pc0B0aGVjb2RpbmdhbmFseXN0LmNvbSIsImlhdCI6MTY4NjIxNzI1MCwiZXhwIjoxNjg2MzAzNjUwfQ.Q0qmQOB4_CAK7LeRD2pxTMTGCI-D_rptJW5uFjssmuE"
 		}
 	]
 }
