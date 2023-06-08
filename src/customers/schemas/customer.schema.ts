@@ -34,10 +34,6 @@ export class Customer {
   @Prop({ required: true, unique: true })
   email: string;
 
-  @ApiProperty({ example: 'true', description: 'If the customer is active' })
-  @Prop({ default: true })
-  isActive: boolean;
-
   @Prop({
     type: {
       building: { type: String },

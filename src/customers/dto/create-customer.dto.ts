@@ -1,5 +1,4 @@
 import {
-  IsBoolean,
   IsEmail,
   IsNotEmpty,
   IsNumberString,
@@ -39,10 +38,6 @@ export class CreateCustomerDto {
     description: 'The email of the customer',
   })
   email: string;
-
-  @IsBoolean()
-  @ApiProperty({ example: 'true', description: 'If the customer is active' })
-  isActive: boolean;
 
   @ValidateNested()
   address: AddressDto;
