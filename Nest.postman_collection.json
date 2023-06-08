@@ -10,40 +10,13 @@
 			"name": "Customers",
 			"item": [
 				{
-					"name": "Get All Customers",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{endpoint}}/customers",
-							"host": [
-								"{{endpoint}}"
-							],
-							"path": [
-								"customers"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Create Customer",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"givenName\": \"Dennis\",\n    \"familyName\": \"Cai\",\n    \"login\": \"dennis\",\n    \"email\": \"dennis@thecodinganalyst.com\",\n    \"isActive\": true,\n    \"address\": {\n        \"building\": \"80\",\n        \"street\": \"Robinson Road\",\n        \"unit\": \"22-04\",\n        \"postal\": \"068898\",\n        \"city\": \"Singapore\",\n        \"country\": \"Singapore\"\n    },\n    \"contact\": \"92781277\",\n    \"password\": \"$2b$10$beSlOQ4jE0Q5DppJyCSTOOtfePk9mNvHIQr5RvBIILzS06pDCvWNC\"\n}",
+							"raw": "{\n    \"givenName\": \"Dennis\",\n    \"familyName\": \"Cai\",\n    \"login\": \"dennis\",\n    \"email\": \"dennis@thecodinganalyst.com\",\n    \"address\": {\n        \"building\": \"80\",\n        \"street\": \"Robinson Road\",\n        \"unit\": \"22-04\",\n        \"postal\": \"068898\",\n        \"city\": \"Singapore\",\n        \"country\": \"Singapore\"\n    },\n    \"contact\": \"92781277\",\n    \"password\": \"$2b$10$beSlOQ4jE0Q5DppJyCSTOOtfePk9mNvHIQr5RvBIILzS06pDCvWNC\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -65,16 +38,26 @@
 				{
 					"name": "Get Customer",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImRlbm5pcyIsInN1YiI6ImRlbm5pc0B0aGVjb2RpbmdhbmFseXN0LmNvbSIsImlhdCI6MTY4NjIxNjMzNCwiZXhwIjoxNjg2MzAyNzM0fQ.4HeO174KOvJ71IEKOUCUovNT7DqfqWOotpaI1NG7Vnw",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{endpoint}}/customers/646e26cb65996b230a7e00c3",
+							"raw": "{{endpoint}}/customers/64819ee74efd1250510779d1",
 							"host": [
 								"{{endpoint}}"
 							],
 							"path": [
 								"customers",
-								"646e26cb65996b230a7e00c3"
+								"64819ee74efd1250510779d1"
 							]
 						}
 					},
@@ -83,11 +66,21 @@
 				{
 					"name": "Update Customer",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImRlbm5pcyIsInN1YiI6ImRlbm5pc0B0aGVjb2RpbmdhbmFseXN0LmNvbSIsImlhdCI6MTY4NjIxNjMzNCwiZXhwIjoxNjg2MzAyNzM0fQ.4HeO174KOvJ71IEKOUCUovNT7DqfqWOotpaI1NG7Vnw",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"givenName\": \"Dennis\",\n    \"familyName\": \"Cai\",\n    \"login\": \"dennis\",\n    \"email\": \"dennis@thecodinganalyst.com\",\n    \"isActive\": true,\n    \"address\": {\n        \"building\": \"80\",\n        \"street\": \"Robinson Road\",\n        \"unit\": \"22-04\",\n        \"postal\": \"068898\",\n        \"city\": \"Singapore\",\n        \"country\": \"Singapore\"\n    },\n    \"contact\": \"92781277\",\n    \"password\": \"D3nn1sC@1D3nn1sC@1\"\n}",
+							"raw": "{\n    \"givenName\": \"Dennis\",\n    \"familyName\": \"Cai\",\n    \"login\": \"dennis\",\n    \"email\": \"dennis@thecodinganalyst.com\",\n    \"address\": {\n        \"building\": \"80\",\n        \"street\": \"Robinson Road\",\n        \"unit\": \"22-04\",\n        \"postal\": \"068898\",\n        \"city\": \"Singapore\",\n        \"country\": \"Singapore\"\n    },\n    \"contact\": \"92781277\",\n    \"password\": \"D3nn1sC@1D3nn1sC@1\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -95,31 +88,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{endpoint}}/customers/646e27ad13d37c095eb1c77e",
+							"raw": "{{endpoint}}/customers/64819ee74efd1250510779d1",
 							"host": [
 								"{{endpoint}}"
 							],
 							"path": [
 								"customers",
-								"646e27ad13d37c095eb1c77e"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Customer",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{endpoint}}/customers/646e2580ded8840a47848c32",
-							"host": [
-								"{{endpoint}}"
-							],
-							"path": [
-								"customers",
-								"646e2580ded8840a47848c32"
+								"64819ee74efd1250510779d1"
 							]
 						}
 					},
@@ -213,24 +188,6 @@
 							"path": [
 								"products",
 								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Customer",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{endpoint}}/customers/646c5f1f92ae31b7b97d681c",
-							"host": [
-								"{{endpoint}}"
-							],
-							"path": [
-								"customers",
-								"646c5f1f92ae31b7b97d681c"
 							]
 						}
 					},
