@@ -27,4 +27,11 @@ export class Product {
   })
   @Column()
   currency: string;
+
+  @ApiProperty({
+    example: 'http://example.com/image.png',
+    description: 'The url of the picture of the product',
+  })
+  @Column()
+  photos: string;
 }
