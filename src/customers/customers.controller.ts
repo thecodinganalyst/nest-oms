@@ -1,12 +1,4 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-} from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param } from '@nestjs/common';
 import { CustomersService } from './customers.service';
 import { CreateCustomerDto } from './dto/create-customer.dto';
 import { UpdateCustomerDto } from './dto/update-customer.dto';
@@ -37,18 +29,6 @@ export class CustomersController {
     return this.customersService.create(createCustomerDto);
   }
 
-  @Get()
-  @ApiOperation({ summary: 'Get all existing customers' })
-  @ApiResponse({
-    status: 200,
-    description: 'All the customers available',
-    type: Customer,
-    isArray: true,
-  })
-  findAll() {
-    return this.customersService.findAll();
-  }
-
   @Get(':id')
   @ApiOperation({ summary: 'Get a specific customer' })
   @ApiResponse({
@@ -73,14 +53,5 @@ export class CustomersController {
   ) {
     delete updateCustomerDto.password;
     return this.customersService.update(id, updateCustomerDto);
-  }
-
-  @Delete(':id')
-  @ApiOperation({ summary: 'Delete a specific customer' })
-  @ApiResponse({
-    status: 200,
-  })
-  remove(@Param('id') id: string) {
-    return this.customersService.remove(id);
   }
 }
