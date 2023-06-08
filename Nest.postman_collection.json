@@ -1,0 +1,313 @@
+{
+	"info": {
+		"_postman_id": "94189304-6405-4090-b4c0-3df1b8da19dc",
+		"name": "Nest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12708565"
+	},
+	"item": [
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "Get All Customers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/customers",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"givenName\": \"Dennis\",\n    \"familyName\": \"Cai\",\n    \"login\": \"dennis\",\n    \"email\": \"dennis@thecodinganalyst.com\",\n    \"isActive\": true,\n    \"address\": {\n        \"building\": \"80\",\n        \"street\": \"Robinson Road\",\n        \"unit\": \"22-04\",\n        \"postal\": \"068898\",\n        \"city\": \"Singapore\",\n        \"country\": \"Singapore\"\n    },\n    \"contact\": \"92781277\",\n    \"password\": \"$2b$10$beSlOQ4jE0Q5DppJyCSTOOtfePk9mNvHIQr5RvBIILzS06pDCvWNC\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/customers",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/customers/646e26cb65996b230a7e00c3",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"customers",
+								"646e26cb65996b230a7e00c3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Customer",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"givenName\": \"Dennis\",\n    \"familyName\": \"Cai\",\n    \"login\": \"dennis\",\n    \"email\": \"dennis@thecodinganalyst.com\",\n    \"isActive\": true,\n    \"address\": {\n        \"building\": \"80\",\n        \"street\": \"Robinson Road\",\n        \"unit\": \"22-04\",\n        \"postal\": \"068898\",\n        \"city\": \"Singapore\",\n        \"country\": \"Singapore\"\n    },\n    \"contact\": \"92781277\",\n    \"password\": \"D3nn1sC@1D3nn1sC@1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/customers/646e27ad13d37c095eb1c77e",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"customers",
+								"646e27ad13d37c095eb1c77e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Customer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/customers/646e2580ded8840a47848c32",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"customers",
+								"646e2580ded8840a47848c32"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/products",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"name\": \"Product A\",\n    \"description\": \"Description of Product A\",\n    \"price\": 100.50,\n    \"currency\": \"SGD\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/products",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/customers/646c5f1f92ae31b7b97d681c",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"customers",
+								"646c5f1f92ae31b7b97d681c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"name\": \"Product A\",\n    \"description\": \"Description of Product A\",\n    \"price\": 100.50,\n    \"currency\": \"SGD\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/products/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Customer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/customers/646c5f1f92ae31b7b97d681c",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"customers",
+								"646c5f1f92ae31b7b97d681c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"dennis\",\n    \"password\": \"$2a$12$Uv29iEHmK47wWffV.NzhYubvObdqVHt7EWYw1Xvd/4Nf/dEcGNA6a\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/auth/login",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Profile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/profile",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"profile"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "endpoint",
+			"value": "http://localhost:3000/v1",
+			"type": "string"
+		}
+	]
+}
