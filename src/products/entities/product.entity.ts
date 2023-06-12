@@ -34,4 +34,11 @@ export class Product {
   })
   @Column()
   photos: string;
+
+  @ApiProperty({
+    example: 'Books, Toys, Office, etc',
+    description: 'The category of the product',
+  })
+  @Column()
+  category: string;
 }
