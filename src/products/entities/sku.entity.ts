@@ -1,15 +1,22 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
-import { Sku } from './sku.entity';
+import { Product } from './product.entity';
 
 @Entity()
-export class Product {
+export class Sku {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ApiProperty({ example: 'Product 1', description: 'The name of the product' })
-  @Column()
-  name: string;
+  @ApiProperty({ example: '1', description: 'Product id of the SKU' })
+  @ManyToOne(() => Sku, (product) => product.id)
+  @JoinColumn()
+  product: Product;
 
   @ApiProperty({
     example: 'Product 1 description',
@@ -37,12 +44,9 @@ export class Product {
   photos: string;
 
   @ApiProperty({
-    example: 'Books, Toys, Office, etc',
-    description: 'The category of the product',
+    example: '100',
+    description: 'Stock count of the product',
   })
   @Column()
-  category: string;
-
-  @OneToMany(() => Sku, (Sku) => Sku.product)
-  skus: Sku[];
+  stockCount: number;
 }
