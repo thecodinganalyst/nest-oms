@@ -19,7 +19,7 @@ export class ProductsService {
   async search(
     searchString: string,
     take: number,
-    cursor: string,
+    cursor?: string,
   ): Promise<PaginationResponseDto<Product>> {
     const [prodName, prodId] = cursor?.split(':');
     const products: Product[] = await this.productRepository

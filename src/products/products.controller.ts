@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ProductsService } from './products.service';
 
 import {
@@ -16,15 +16,18 @@ export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
   @Get()
-  @ApiOperation({ summary: 'Get all existing products' })
+  @ApiOperation({ summary: 'Search products' })
   @ApiResponse({
     status: 200,
     description: 'All the products available',
     type: Product,
     isArray: true,
   })
-  findAll() {
-    return this.productsService.findAll();
+  findAll(
+    @Query('searchString') searchString: string,
+    @Query('cursor') cursor: string,
+  ) {
+    return this.productsService.search(searchString, 20, cursor);
   }
 
   @Get(':id')
